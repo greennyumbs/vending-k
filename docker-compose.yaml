@@ -1,0 +1,20 @@
+version: "1"
+name: vending-machine-bluepi
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: main
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+    command: ["redis-server"]
